@@ -7,8 +7,13 @@ import System.Environment
 
 main :: IO ()
 main = do
-    [w, h] <- getArgs
+    (w:h:rest) <- getArgs
+
+    let (filled, empty) = case rest of
+                              [] -> ("██", "  ")
+                              [a, b] -> (a,b)
+
     let size = (read <$> V2 w h)*2-1
     gen <- newStdGen
     let grid = genMaze size gen
-    putStrLn $ renderGrid size grid
+    putStrLn . unlines $ renderGrid filled empty size grid

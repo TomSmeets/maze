@@ -2,19 +2,19 @@
 module Maze where
 
 import Control.Monad.State
+import Debug.Trace
 import Linear hiding (trace)
 import System.Random
-import Debug.Trace
 
 type Grid = [V2 Integer]
 type MazeGen a = State (StdGen, Grid) a
 
-renderGrid :: V2 Integer -> Grid -> String
-renderGrid (V2 sx sy) grid = unlines [concat [f x y | x <- [-1..sx]] | y <- [-1..sy]]
+renderGrid :: String -> String -> V2 Integer -> Grid -> [String]
+renderGrid wall empty (V2 sx sy) grid = [concat [f x y | x <- [-1..sx]] | y <- [-1..sy]]
   where
     f x y= if V2 x y `elem` grid
-      then "  "
-      else "██"
+      then empty
+      else wall
 
 genMaze :: V2 Integer -> StdGen -> Grid
 genMaze size g = snd $ execState (let p = (round <$> (fromIntegral <$> size) / 2) in iter p p) (g,[])
