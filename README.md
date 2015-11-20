@@ -14,7 +14,7 @@ For me this was `.stack-work/dist/x86_64-linux/Cabal-1.22.4.0/build/maze-exe/maz
 `maze Width Height [FilledSTRING] [EmptySTRING]`
 
 ## Examples
-Example output of `maze 10 10` equivalent of `maze 10 10 "██" "  ":
+Example output of `maze 10 10` equivalent of `maze 10 10 "██" "  "`:
 ```
 ██████████████████████████████████████████
 ██              ██                      ██
