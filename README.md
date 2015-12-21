@@ -6,10 +6,10 @@ Building using
 [stack](https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md): `stack build`
 
 ## Running
-To Run the project use: `stack exec maze-exe`  
+To Run the project use: `stack exec maze`  
 The executable can also be found inside the `.stack-work/dist` directory  
 
-For me this was `.stack-work/dist/x86_64-linux/Cabal-1.22.4.0/build/maze-exe/maze-exe` but can be different for you
+For me this was `.stack-work/dist/x86_64-linux/Cabal-1.22.4.0/build/maze/maze` but can be different for you
 
 `maze Width Height [FilledSTRING] [EmptySTRING]`
 
