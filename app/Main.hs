@@ -2,18 +2,17 @@ module Main where
 
 import Linear
 import Maze
-import System.Random
 import System.Environment
+import System.Random
 
 main :: IO ()
 main = do
-    (w:h:rest) <- getArgs
-
-    let (filled, empty) = case rest of
-                              [] -> ("██", "  ")
-                              [a, b] -> (a,b)
-
-    let size = (read <$> V2 w h)*2-1
+    args <- getArgs
+    let (size, filled, empty) = case args of
+                                  [w,h]     -> (read <$> V2 w h, "██", "  ")
+                                  [w,h,a,b] -> (read <$> V2 w h, a, b)
+                                  _         -> error "Invalid amount of arguments"
+    let realSize = size*2 - 1
     gen <- newStdGen
-    let grid = genMaze size gen
-    putStrLn . unlines $ renderGrid filled empty size grid
+    let grid = genMaze realSize gen
+    putStrLn . unlines $ renderGrid filled empty realSize grid
