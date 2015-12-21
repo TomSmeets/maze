@@ -7,9 +7,13 @@ Building using
 
 ## Running
 To Run the project use: `stack exec maze`  
+
+If you run `stack install` stack places the executable inside your `~/.local/bin` directory
+
 The executable can also be found inside the `.stack-work/dist` directory  
 
-For me this was `.stack-work/dist/x86_64-linux/Cabal-1.22.4.0/build/maze/maze` but can be different for you
+For me it was at `.stack-work/dist/x86_64-linux/Cabal-1.22.4.0/build/maze/maze`
+but this can be different for you
 
 `maze Width Height [FilledSTRING] [EmptySTRING]`
 
