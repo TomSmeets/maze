@@ -26,4 +26,4 @@ executable maze
 
 source-repository head
   type:     git
-  location: https://github.com/TomSmeets/maze
+  location: git://github.com/TomSmeets/maze.git
